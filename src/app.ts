@@ -4,6 +4,8 @@ import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import userRoutes  from './Routes/userRoutes';
 
+import monitoringMiddleware from './middlewares/monitoringMiddleware';
+
 // Load environment variables from .env file
 dotenv.config();
 
@@ -15,6 +17,7 @@ const port: number = parseInt(process.env.PORT || '3000', 10);
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(monitoringMiddleware);
 
 // Routes
 app.get('/test', (req: Request, res: Response) => {

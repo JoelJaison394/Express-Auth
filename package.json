@@ -13,10 +13,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@prisma/client": "^5.12.1",
+    "@prisma/client": "^5.13.0",
+    "@types/bcrypt": "^5.0.2",
     "@types/jsonwebtoken": "^9.0.6",
     "@types/winston": "^2.4.4",
     "apidoc": "^1.2.0",
+    "bcrypt": "^5.1.1",
     "bcryptjs": "^2.4.3",
     "bee-queue": "^1.7.1",
     "body-parser": "^1.20.2",
