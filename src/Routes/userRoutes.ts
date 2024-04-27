@@ -1,7 +1,8 @@
 import express from 'express';
 const router = express.Router();
-import { register } from '../controllers/AuthControllers';
+import { register , login } from '../controllers/AuthControllers';
 import rateLimit from 'express-rate-limit';
+import {jwtAuth} from '../middlewares/jwtAuth'
 
 
 const Registerlimiter = rateLimit({
@@ -11,5 +12,6 @@ const Registerlimiter = rateLimit({
 });
 
 router.post('/register',Registerlimiter,register);
+router.post('/login',Registerlimiter,login);
 
 export default router;
