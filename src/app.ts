@@ -6,7 +6,6 @@ import userRoutes  from './Routes/userRoutes';
 
 import monitoringMiddleware from './middlewares/monitoringMiddleware';
 
-// Load environment variables from .env file
 dotenv.config();
 
 const app: Application = express();
@@ -33,7 +32,6 @@ app.use((err: any, req: Request, res: Response, next: Function) => {
   res.status(500).send('Something went wrong!');
 });
 
-// Graceful shutdown
 const server = app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });

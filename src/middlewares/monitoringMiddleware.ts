@@ -48,15 +48,15 @@ const monitoringMiddleware = async (req: Request, res: Response, next: NextFunct
     console.log(`Alert: High request latency detected for route ${routePath} (${requestLatency} ms).`);
   }
 
-  // Check if a time window has passed (e.g., every 5 minutes) and reset route stats
-  const timeWindowDuration = 5 * 60 * 1000; // 5 minutes in milliseconds
+ 
+  const timeWindowDuration = 5 * 60 * 1000; 
   const currentTime = Date.now();
   if (currentTime - requestStartTime > timeWindowDuration) {
     routeStats.requestCount = 0;
     routeStats.totalTime = 0;
   }
 
-  // Store or update route statistics in the database
+
   await prisma.routeStatistics.upsert({
     where: { routePath },
     update: {
